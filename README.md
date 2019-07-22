@@ -15,15 +15,16 @@ We want to replace the data in `static.js` with an actual database, which we'll 
 1.  Connect to postgres: `psql` or `pgcli`.
 1.  Create the database: `CREATE DATABASE [the name of the database];`. Note, if we were storing sensitive information you need to change your password. For now, we'll leave it as default 'password'.
 1.  Add a `config.env` file and add the database's url in this format: `DB_URL = postgres://[username]:[password]@localhost:5432/[database]`. The database name needs to be in lower case.
+1.  Connect your app to your databas in `database/db_connection.js`
 
-### Task 2: Getting data from the database
+### Task 2: Getting data from the database from your app
 
-1.  Connect to your database using `psql postgres://[username]:[password]@localhost:5432/[database]`.
+1.  Connect to your database in your terminal using `psql postgres://[username]:[password]@localhost:5432/[database]`.
 1.  Create a table called 'users' with three columns: 'id', 'name' and 'location' and add a couple of rows of dummy data. **Hint: don't hard code the ids**
 1.  Inside `queries/getData.js`, write a SQL query that pulls the user and location from your database.
 1.  Change the `/users` handler in `handlers.js` to call the `getData` query.
 
-### Task 3: Adding data to the database
+### Task 3: Adding data to the database from your app
 
 In the commented out form in `index.html` we have this attribute: `action="create-user"`. When a user clicks 'submit' on this form, the details they have entered will be sent in the body to a 'create-user' endpoint.
 
